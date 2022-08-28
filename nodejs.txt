@@ -1,0 +1,56 @@
+ -> Esse projeto é um exemplo de backend mais simples possivel de fazer com NodeJs
+
+-> Node.Js é uma plataforma de execução de Javascript fora do browser, construída em cima do motor V8 do Google Chrome
+
+***** EXPRESS JS *****
+- fornece sistema de rotas
+- permite lidar com erros 
+- gerencia modulo http
+
+**** NODEMON *****
+- node monitor
+- faz a atualizacao no servidor quando editamos as coisas
+
+
+*** FOLDER STRUCTURE *****
+
+node_modules
+src
+	> config
+	> hepers
+	> models
+	> routes
+	index.js
+.env
+.gitignore
+package.json
+
+
+***** PASSO A PASSO ******
+
+1 - npm init -y (inicializa node.js no projeto)
+2 - package.json > editar script "test":
+	"start" : "node index.js"
+
+3 - npm install express 
+4 - criar index.js 
+
+	const express = require("express");
+	const app = express();
+
+	const PORT = 3000;
+	app.listen(PORT, ()=>{
+ 	   console.log(`server started on PORT ${PORT}`)
+	});
+
+5 - teste inicial do servidor rodando: npm start
+6 - npm install -D nodemon (detecta mudancas no servidor em tempo real e atualiza)
+7 - criar novo script em package json:
+	"dev" : "nodemon index.js"
+8 - vamos rodar o servidor com npm run dev agora
+
+9 - criar pasta src e internamente criar pastas controllers, models e routes
+10 - a pasta models serve pra armazenar arquivos .json com os dados (enquanto n usamos database)
+11 - a pasta routes faz o meio de campo entre o index.js e controllers, vai redirecionar para o controller adequado
+12 - a pasta controllers armazena as operacoes HTTP desejadas (PUT, POST, DELETE, GET) de acordo com a URL da requisicao 
+
